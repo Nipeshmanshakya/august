@@ -16,16 +16,24 @@
     <form action="{{ url('register') }}" method="post">
         {!! csrf_field() !!}
         <div class="form-group">
-            <label for="">Username</label>
-            <input type="text" class="form-control" name="username">
+            <label for="">Name</label>
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+            <span class="text-danger">{{ $errors -> first('name') }}</span>
         </div>
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email" value="{{ old('email') }}">
+            <span class="text-danger">{{ $errors -> first('email') }}</span>
         </div>
         <div class="form-group">
             <label for="">Password</label>
             <input type="text" class="form-control" name="password">
+            <span class="text-danger">{{$errors -> first('password')}}</span>
+        </div>
+        <div class="form-group">
+            <label for="">Password confirmation</label>
+            <input type="text" class="form-control" name="password_confirmation">
+            <span class="text-danger">{{$errors -> first('password_confirmation')}}</span>
         </div>
         <button class="btn btn-success">Submit</button>
     </form>
